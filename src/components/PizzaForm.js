@@ -35,7 +35,7 @@ export default function PizzaForm(props){
         <label>
           <input type='checkbox' name='pineapple'value={pineapple} onChange={onChange}/> Pineapple
         </label>
-        <textarea id='special-text' placeholder='Instructions' value={special} onChange={onChange}></textarea>
+        <textarea id='special-text' placeholder='Instructions' value={special} onChange={onChange} name='special'></textarea>
         <input type='submit' value='Place Order!' name='submit'/>
       </form>
 
