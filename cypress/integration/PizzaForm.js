@@ -9,7 +9,8 @@ describe('Form', () => {
     const pineapple = () => cy.get('input[name=pineapple]')
     const foobarInput = () => cy.get('input[name=foobar]');
     const specialText = () => cy.get('textarea');
-
+    const submitBtn = () => cy.contains('Place Order!');
+    const size = () => cy.get('select');
     it('sanity check', () => {
         expect(1+2).to.equal(3);
         expect(2+2).not.to.equal(11);
@@ -25,17 +26,24 @@ describe('Form', () => {
         pineapple().should('exist');
         specialText().should('exist');
         cy.contains('Place Order!').should('exist');
-
+        submitBtn().should('exist');
+        size().should('exist');
     })
 
-    it('Inputs can be changed', () => {
+    it('Input can be made and submitted', () => {
         nameInput().type('Jayson');
         banana().click();
         mushroom().click();
         olive().click();
         pineapple().click();
-        specialText().type('Please knock, the doorbell does not work!')
-        nameInput().contains('Jayson').should('exist');
+        specialText().type('Please knock, the doorbell does not work!');
+
+
+        submitBtn().click();
+        nameInput().contains('Jayson').should('not.exist');
+        specialText().contains('Please knock, the doorbell does not work!').should('not.exist');
+
+
 
     })
 })
