@@ -27,4 +27,15 @@ describe('Form', () => {
         cy.contains('Place Order!').should('exist');
 
     })
+
+    it('Inputs can be changed', () => {
+        nameInput().type('Jayson');
+        banana().click();
+        mushroom().click();
+        olive().click();
+        pineapple().click();
+        specialText().type('Please knock, the doorbell does not work!')
+        nameInput().contains('Jayson').should('exist');
+
+    })
 })
