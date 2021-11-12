@@ -5,6 +5,7 @@ import PizzaHero from './components/PizzaHero';
 import PizzaForm from './components/PizzaForm';
 import axios from 'axios';
 import * as yup from 'yup';
+import formSchema from './validation/formSchema';
 
 const initialFormValues = {
   name: '',
@@ -45,6 +46,7 @@ const App = () => {
     axios.post('https://reqres.in/api/orders', formValues)
     .then(res => {
       setOrders([...orders, res.data]);
+      console.log(res.data);
     })
     .catch(err => {
       console.error(err);
@@ -56,7 +58,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route path='/pizza'>
-          <PizzaForm change={change} submit={submit} values={formValues}/>
+          <PizzaForm change={change} submit={submit} values={formValues} errors={formErrors}/>
         </Route>
         <Route path='/'>
           <PizzaHero />
