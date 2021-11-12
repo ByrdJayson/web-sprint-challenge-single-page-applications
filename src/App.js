@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import PizzaHero from './components/PizzaHero';
@@ -9,7 +9,6 @@ import formSchema from './validation/formSchema';
 
 const initialFormValues = {
   name: '',
-  size: 'Select a size',
   banana: false,
   pineapple: false,
   mushroom: false,
@@ -18,7 +17,8 @@ const initialFormValues = {
 }
 
 const initialFormErrors = {
-  name: ''
+  name: '',
+  size: ''
 }
 
 const App = () => {
@@ -27,18 +27,19 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [orders, setOrders] = useState([]);
 
-  // const validate = (value, name) => {
-  //   yup.reach(formSchema, name)
-  //   .validate(value)
-  //   .then(() => {
-  //     setFormErrors({...formErrors, [name]: ''})
-  //   })
-  //   .catch(err => {
-  //     setFormErrors({...formErrors, [name]: err.errors[0]})
-  //   })
-  // }
+  const validation = (name, value) => {
+    yup.reach(formSchema, name)
+    .validate(value)
+    .then(() => {
+      setFormErrors({...formErrors, [name]: ''});
+    })
+    .catch(err => {
+      setFormErrors({...formErrors, [name]: err.errors[0]})
+    })
+  }
+
   const change = (name, value) => {
-    //validate(name, value);
+    validation(name, value);
     setFormValues({...formValues, [name]: value});
   }
 
@@ -53,6 +54,7 @@ const App = () => {
     })
     .finally(setFormValues(initialFormValues))
   }
+
   return (
     <>
       <Header />

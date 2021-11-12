@@ -14,6 +14,9 @@ export default function PizzaForm(props){
     change(name, newValue);
   }
   return (
+    <div>
+      <p>{errors.name}</p>
+      <p>{errors.size}</p>
       <form id='pizza-form' onSubmit={onSubmit}>
         <input type='text' name='name' id='name-input' placeholder='Name' value={name} onChange={onChange}/>
         <select id='size-dropdown' name='size' value={size} onChange={onChange}>
@@ -24,7 +27,7 @@ export default function PizzaForm(props){
           <option>X-Large</option>
         </select>
         <label>
-          <input type='checkbox' name='banana' value={banana} onChange={onChange}/> Banana Peppers
+          <input type='checkbox' name='banana' value={banana} onChange={onChange} /> Banana Peppers
         </label>
         <label>
           <input type='checkbox' name='olive' value={olive} onChange={onChange}/> Black Olives
@@ -36,8 +39,8 @@ export default function PizzaForm(props){
           <input type='checkbox' name='pineapple'value={pineapple} onChange={onChange}/> Pineapple
         </label>
         <textarea id='special-text' placeholder='Instructions' value={special} onChange={onChange} name='special'></textarea>
-        <input type='submit' value='Place Order!' name='submit'/>
+        <input type='submit' value='Place Order!' name='submit' id='order-button'/>
       </form>
-
+    </div>
   )
 }

@@ -8,8 +8,8 @@ const formSchema = yup.object().shape({
        .min(2, 'name must be at least 2 characters'),
    size: yup
        .string()
-       .oneOf(['Small', 'Medium', 'Large', 'X-Large'])
-       .required('size is a required field'),
+       .required('size is a required field')
+       .oneOf(['Small', 'Medium', 'Large', 'X-Large']),
    special: yup
        .string(),
    mushroom: yup
