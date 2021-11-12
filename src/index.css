@@ -37,6 +37,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 #pizza-form {
@@ -44,5 +45,6 @@ nav {
   flex-direction: column;
   width: 100%;
   justify-content: center;
+  height: 50vh;
   align-items: center;
 }

@@ -4,7 +4,7 @@ export default function PizzaHero(){
 
   return (
     <div className='hero-div'>
-      Pizza Hero In Progress!
+      <h2>Your favorite food, delivered while coding</h2>
       <Link to='/pizza' id='order-pizza'>Pizza?</Link>
     </div>
   )
