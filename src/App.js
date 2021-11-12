@@ -1,14 +1,22 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
+import PizzaHero from './components/PizzaHero';
+import PizzaForm from './components/PizzaForm';
 
 
 const App = () => {
   return (
     <>
-    <Route path='/'>
       <Header />
-    </Route>
+      <Switch>
+        <Route path='/pizza'>
+          <PizzaForm/>
+        </Route>
+        <Route path='/'>
+          <PizzaHero />
+        </Route>
+      </Switch>
     </>
   );
 };

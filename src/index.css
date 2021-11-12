@@ -24,8 +24,14 @@ header {
   display: flex;
   justify-content: space-between;
   width: 10%;
+  text-decoration: none;
 }
 
 nav {
   width: 50%;
+}
+
+.hero-div {
+  width: 100%;
+  height: 50vh;
 }
