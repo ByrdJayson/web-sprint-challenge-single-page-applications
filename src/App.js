@@ -60,7 +60,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route path='/pizza'>
-          <PizzaForm change={change} submit={submit} values={formValues} errors={formErrors}/>
+          <PizzaForm change={change} submit={submit} values={formValues} errors={formErrors} orders={orders}/>
         </Route>
         <Route path='/'>
           <PizzaHero />

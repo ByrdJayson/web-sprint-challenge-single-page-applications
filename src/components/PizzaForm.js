@@ -1,6 +1,6 @@
 import React from 'react';
 export default function PizzaForm(props){
-  const { change, submit, errors } = props;
+  const { change, submit, errors, orders } = props;
   const { name, size, banana, pineapple, mushroom, olive, special } = props.values;
 
   function onSubmit(e){
@@ -41,6 +41,17 @@ export default function PizzaForm(props){
         <textarea id='special-text' placeholder='Instructions' value={special} onChange={onChange} name='special'></textarea>
         <input type='submit' value='Place Order!' name='submit' id='order-button'/>
       </form>
+      <div className='orders'>
+        {orders.map(order => {
+          return (
+            <div key={order.id}>
+              <p>Order # {order.id}</p>
+              <p>Name: {order.name}</p>
+              <p>Time: {order.createdAt}</p>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
